@@ -12,7 +12,7 @@ import "./GrowingPlant.scss";
 const plants = {
   name: "Rose",
   icon: "🌹",
-  size: 30,
+  size: 40,
 };
 
 //html code, js => {}
