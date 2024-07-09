@@ -1,0 +1,14 @@
+$PrimaryColor : green;
+
+.Plant{
+    color: $PrimaryColor;
+    font-size: 24px;
+    font-weight: bold;
+
+    .logo{
+        font-size: 24px;
+    }
+    .text{
+        color: $PrimaryColor;
+    }
+}
