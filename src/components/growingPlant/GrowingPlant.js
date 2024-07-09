@@ -6,17 +6,35 @@ import "./GrowingPlant.scss";
 //   color: 'purple',
 // };
 
-// const PlantName = "Sunflower";
-// const size = 24;
 
-const plants = {
-  name: "Rose",
-  icon: "🌹",
-  size: 40,
-};
+
+
 
 //html code, js => {}
-function GrowingPlant() {
+function GrowingPlant(props) {
+//props - using it has a dynamic change and reusable
+
+const name = {
+  first:'viki',
+  last:'P'
+}
+//Object destructure
+
+const {first="Default",last,color='Red'} = name
+console.log(first,last,color)
+
+
+
+
+const defaultData = {
+  name: "No name provided",
+  icon: "No icon is provided",
+  size: 30,
+};
+
+const {plants = defaultData} = props
+//destructure and props into plants
+
   return (
     <div className="Plant">
       <div className="text">
