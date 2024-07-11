@@ -1,5 +1,6 @@
 import React from 'react'
 import GrowingPlant from '../growingPlant/GrowingPlant'
+import Searchlist from '../growingPlant/Searchbar';
 
 const plants1 = {
   name: "Rose",
@@ -30,6 +31,7 @@ function Home() {
         <GrowingPlant plants={plants1}/>
         <GrowingPlant plants={plants2}/>
         {/* <GrowingPlant/> */}
+        <Searchlist/>
     </div>
   )
 }

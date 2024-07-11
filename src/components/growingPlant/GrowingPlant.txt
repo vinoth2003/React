@@ -1,0 +1,66 @@
+class method for react
+
+const defaultData = {
+  name: "No name provided",
+  icon: "No icon is provided",
+  size: 30,
+};
+
+
+
+class GrowingPlant extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      dynamicSize: props.plants.size,
+    };
+
+  }
+
+  componentDidMount() {
+    console.log("First mount")
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.dynamicSize !== this.state.dynamicSize) {
+       this.Interval = setInterval(() => {
+        if (this.state.dynamicSize < 140)
+          this.setState({ dynamicSize: this.state.dynamicSize + 20 });
+      }, 1000);
+    }
+  }
+  grow = () => {
+    this.setState({ dynamicSize: this.state.dynamicSize + 20 });
+  };
+  componentWillUnmount() {
+    clearInterval(this.Interval)
+  }
+  goToSearchbar = () => {
+    this.props.history.push('/Searchbar');
+  };
+  
+  render() {
+    const { plants=defaultData } = this.props;
+    const { name, icon, aboutMe } = plants;
+   
+
+    return (
+      <div className="Plant">
+        <div>I am a{name},I am growing</div>
+        <div>
+          <span style={{ fontSize: `${this.state.dynamicSize}px` }}>
+            {icon}
+          </span>
+          {name === "Rose" ? <span>⭐</span> : ""}
+        </div>
+        <button onClick={this.grow}>Give Water</button>
+        <br></br>
+        {aboutMe.map((data, index) => (
+          <div key={index}>
+            {index + 1}.{data}
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
